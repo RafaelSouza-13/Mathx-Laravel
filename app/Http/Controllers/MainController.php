@@ -11,8 +11,33 @@ class MainController extends Controller
         return view('home');
     }
 
+    
     public function generateExercises(Request $request): View{
         // Validação
+        $this->validInputExercices($request);
+
+        // Operações
+        $operations = $this->getOperations($request);
+
+        // genera exercicios
+        $exercices = $this->generate($request, $operations);
+        
+        // Abrindo uma sessão
+        session(['exercises' => $exercices]);
+        // ou
+        // $request->session()->put('exercises', $exercices);
+        return view('operations', ['exercises' => $exercices]);
+    }
+
+    public function printExercises(){
+        echo "Imprimir exercicios";
+    }
+
+    public function exportExercises(){
+        echo "Exportar exercicios para um arquivo de texto";
+    }
+
+    private function validInputExercices(Request $request): void{
         $request->validate([
             'check_sum' => 'required_without_all:check_subtraction,check_multiplication,check_division',
             'check_subtraction' => 'required_without_all:check_sum,check_multiplication,check_division',
@@ -22,8 +47,9 @@ class MainController extends Controller
             'number_two' => 'required|integer|min:0|max:999',
             'number_exercises' => 'required|integer|min:5|max:50',
         ]);
+    }
 
-        // Operações
+    private function getOperations(Request $request): array{
         $operations = [];
         if($request->check_sum){
             $operations[] = 'sum';
@@ -41,17 +67,19 @@ class MainController extends Controller
         if($request->check_division){
             $operations[] = 'division';
         }
+        return $operations;
+    }
 
+    private function generate(Request $request, array $operations): array{
         // minimos e maximo
         $min = $request->number_one;
         $max = $request->number_two;
 
         // numeros de exercicios
-        $numerExercices = $request->number_exercises;
+        $numberExercices = $request->number_exercises;
 
-        // genera exercicios
         $exercices = [];
-        for($index = 1; $index <= $numerExercices; $index++){
+        for($index = 1; $index <= $numberExercices; $index++){
             $operation = $operations[array_rand($operations)];
             $number1 = rand($min, $max);
             $number2 = rand($min, $max);
@@ -96,15 +124,6 @@ class MainController extends Controller
                 'sollution' => "$exercise $solluction",
             ];
         }
-
-        return view('operations', ['exercises' => $exercices]);
-    }
-
-    public function printExercises(){
-        echo "Imprimir exercicios";
-    }
-
-    public function exportExercises(){
-        echo "Exportar exercicios para um arquivo de texto";
+        return $exercices;
     }
 }
