@@ -29,7 +29,7 @@
 
             <!-- each operation -->
             @foreach($exercises as $exercise)
-                <x-card-exercise number="{{ $exercise['exercise_number'] }}" exercise="{{ $exercise['exercise'] }}" />
+                <x-card-exercise :number="$exercise['exercise_number']" :exercise="$exercise['exercise']" />
             @endforeach
         </div>
 
