@@ -20,13 +20,13 @@ class MainController extends Controller
         $operations = $this->getOperations($request);
 
         // genera exercicios
-        $exercices = $this->generate($request, $operations);
+        $exercises = $this->generate($request, $operations);
         
         // Abrindo uma sessão
-        session(['exercises' => $exercices]);
+        session(['exercises' => $exercises]);
         // ou
         // $request->session()->put('exercises', $exercices);
-        return view('operations', ['exercises' => $exercices]);
+        return view('operations', ['exercises' => $exercises]);
     }
 
     public function printExercises(){
