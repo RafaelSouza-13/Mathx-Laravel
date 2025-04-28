@@ -14,7 +14,6 @@ class InputNumber extends Component
     public function __construct(
         public string $id,
         public string $name,
-        public string $label,
         public string $min,
         public string $max,
         public string $value,
