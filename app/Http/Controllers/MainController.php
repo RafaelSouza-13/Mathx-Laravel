@@ -53,7 +53,28 @@ class MainController extends Controller
     }
 
     public function exportExercises(){
-        echo "Exportar exercicios para um arquivo de texto";
+        // checa sessao
+        if(!session()->has('exercises')){
+            return redirect()->route('home');
+        }
+        // criar um arquivo para download dos exercicios
+        $exercises = session('exercises');
+        $filename = 'exercises_' . env('APP_NAME') . '_' . date('YmdHis') . '.txt';
+        $content = '';
+        foreach ($exercises as $exercise) {
+            $content .= $exercise['exercise_number'] . ') ' . $exercise['exercise'] . "\n";
+        }
+
+        // soluções
+        $content .= "\n";
+        $content .= "Soluções\n" . str_repeat('-', 20) . "\n";
+        foreach ($exercises as $exercise) {
+            $content .= $exercise['exercise_number'] . ') ' . $exercise['sollution'] . "\n";
+        }
+
+        return response($content)
+                ->header('Content-Type', 'text/plain')
+                ->header('Content-Disposition', 'attachment; filename="'. $filename .'"');
     }
 
     private function validInputExercices(Request $request): void{
