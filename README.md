@@ -9,7 +9,7 @@
 
 # 📖 Projeto - Mathx
 
-Projeto em laravel de um sistema que gera exercícios com as operações básicas da matemática.
+Projeto em laravel de um sistema que gera exercícios com as operações básicas da matemática que permite o download e impressão.
 
 ## ⚙️ Tecnologias Utilizadas
 
@@ -21,6 +21,7 @@ Projeto em laravel de um sistema que gera exercícios com as operações básica
 ## 💡 Funcionalidades
 - [x] Submissão de formulário
 - [x] Validação de dados
+- [x] Download de um arquivo txt
 
 ## 🏗️ Estrutura do Projeto
 
