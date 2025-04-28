@@ -63,11 +63,6 @@
 
                     <p class="text-info">Número de exercícios:</p>
 
-                    {{-- <div class="mb-3">
-                        <label for="number_exercises">Número:</label>
-                        <input type="number" class="form-control" id="number_exercises" name="number_exercises" min="5"
-                            max="50" value="10">
-                    </div> --}}
                     <x-input-number id="number_exercises" name="number_exercises" min="5" max="50" value="10" label="Número"/>
 
                     <div class="text-end">
