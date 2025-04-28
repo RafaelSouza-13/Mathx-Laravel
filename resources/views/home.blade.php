@@ -37,13 +37,13 @@
 
                     <p class="text-info">Operações:</p>
 
-                    <x-input-checkbox id="check_sum" name="check_sum" label="Soma" />
+                    <x-input-checkbox id="check_sum" name="check_sum">Soma</x-input-checkbox>
 
-                    <x-input-checkbox id="check_subtraction" name="check_subtraction" label="Subtração" />
+                    <x-input-checkbox id="check_subtraction" name="check_subtraction">Subtração</x-input-checkbox>
 
-                    <x-input-checkbox id="check_multiplication" name="check_multiplication" label="Multiplicação" />
+                    <x-input-checkbox id="check_multiplication" name="check_multiplication">Multiplicação</x-input-checkbox>
 
-                    <x-input-checkbox id="check_division" name="check_division" label="Divisão" />
+                    <x-input-checkbox id="check_division" name="check_division">Divisão</x-input-checkbox>
 
                 </div>
 
@@ -52,9 +52,9 @@
 
                     <p class="text-info">Parcelas:</p>
 
-                    <x-input-number id="number_one" name="number_one" min="0" max="999" value="0" label="Mínimo"/>
+                    <x-input-number id="number_one" name="number_one" min="0" max="999" value="0">Mínimo</x-input-number>
 
-                    <x-input-number id="number_two" name="number_two" min="0" max="999" value="100" label="Máximo"/>
+                    <x-input-number id="number_two" name="number_two" min="0" max="999" value="100">Máximo</x-input-number>
 
                 </div>
 
