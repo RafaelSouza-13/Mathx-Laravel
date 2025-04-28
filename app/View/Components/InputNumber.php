@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class InputCheckbox extends Component
+class InputNumber extends Component
 {
     /**
      * Create a new component instance.
@@ -15,6 +15,9 @@ class InputCheckbox extends Component
         public string $id,
         public string $name,
         public string $label,
+        public string $min,
+        public string $max,
+        public string $value,
     )
     {
         //
@@ -25,6 +28,6 @@ class InputCheckbox extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.input-checkbox');
+        return view('components.input-number');
     }
 }

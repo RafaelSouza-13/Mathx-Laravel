@@ -37,13 +37,13 @@
 
                     <p class="text-info">Operações:</p>
 
-                    <x-input-checkbox id="check_sum" name="check_sum" value="Soma" />
+                    <x-input-checkbox id="check_sum" name="check_sum" label="Soma" />
 
-                    <x-input-checkbox id="check_subtraction" name="check_subtraction" value="Subtração" />
+                    <x-input-checkbox id="check_subtraction" name="check_subtraction" label="Subtração" />
 
-                    <x-input-checkbox id="check_multiplication" name="check_multiplication" value="Multiplicação" />
+                    <x-input-checkbox id="check_multiplication" name="check_multiplication" label="Multiplicação" />
 
-                    <x-input-checkbox id="check_division" name="check_division" value="Divisão" />
+                    <x-input-checkbox id="check_division" name="check_division" label="Divisão" />
 
                 </div>
 
@@ -52,17 +52,9 @@
 
                     <p class="text-info">Parcelas:</p>
 
-                    <div class="mb-3">
-                        <label for="number_one">Mínimo:</label>
-                        <input type="number" class="form-control" id="number_one" name="number_one" min="0" max="999"
-                            value="0">
-                    </div>
+                    <x-input-number id="number_one" name="number_one" min="0" max="999" value="0" label="Mínimo"/>
 
-                    <div>
-                        <label for="number_two">Máximo:</label>
-                        <input type="number" class="form-control" id="number_two" name="number_two" min="0" max="999"
-                            value="100">
-                    </div>
+                    <x-input-number id="number_two" name="number_two" min="0" max="999" value="100" label="Máximo"/>
 
                 </div>
 
@@ -71,11 +63,12 @@
 
                     <p class="text-info">Número de exercícios:</p>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="number_exercises">Número:</label>
                         <input type="number" class="form-control" id="number_exercises" name="number_exercises" min="5"
                             max="50" value="10">
-                    </div>
+                    </div> --}}
+                    <x-input-number id="number_exercises" name="number_exercises" min="5" max="50" value="10" label="Número"/>
 
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Gerar exercícios</button>
