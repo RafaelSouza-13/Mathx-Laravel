@@ -28,11 +28,8 @@
         <div class="row">
 
             <!-- each operation -->
-            @foreach($exercises as $exercice)
-                <div class="col-3 display-6 mb-3">
-                    <span class="badge bg-dark">{{ $exercice['exercise_number'] }}</span>
-                    <span>{{ $exercice['exercise'] }}</span>
-                </div>
+            @foreach($exercises as $exercise)
+                <x-card-exercise number="{{ $exercise['exercise_number'] }}" exercise="{{ $exercise['exercise'] }}" />
             @endforeach
         </div>
 
